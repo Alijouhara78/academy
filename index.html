@@ -2,33 +2,51 @@
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./src/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>school-app</title>
-    </head>
+    <title>مدرسة التميز | School App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
+  </head>
   <body>
-    <div id="splash-screen" class="splash-screen">
-      <div class="spinner"></div>
-      <h2 class="splash-text">جاري التحميل...</h2>
+
+    <div id="splash-screen" class="cinematic-splash">
+      <div class="splash-core">
+        <div class="knowledge-ring"></div>
+        <img src="./src/logo.png" alt="School Logo" class="splash-logo-glass"> 
+        
+        <span class="particle p1">E=mc²</span>
+        <span class="particle p2">∫</span>
+        <span class="particle p3">π</span>
+        <span class="particle p4">تاريخ</span>
+        <span class="particle p5">علوم</span>
+        <span class="particle p6">أدب</span>
+        <span class="particle p7">Σ</span>
+        <span class="particle p8">β</span>
+      </div>
+      
+      <div class="splash-text-container">
+        <h1 class="splash-title">المدرسة الأكاديمية الخاصة</h1>
+        <p class="splash-subtitle"> ..المكان الأفضل لبناء المستقبل</p>
+      </div>
     </div>
 
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
 
     <script>
-      // ننتظر حتى يتم تحميل كامل الصفحة (الصور، الملفات، إلخ)
       window.addEventListener('load', () => {
-        const splashScreen = document.getElementById('splash-screen');
+        const splash = document.getElementById('splash-screen');
         
-        // نضيف تأخير بسيط (اختياري) لضمان رؤية الحركة الجمالية
+        // تأخير بسيط 2 ثانية ليعيش المستخدم التجربة البصرية
         setTimeout(() => {
-          splashScreen.classList.add('fade-out');
+          splash.classList.add('reveal-site');
           
-          // إزالة العنصر تماماً من الـ DOM بعد انتهاء حركة الاختفاء لتخفيف الذاكرة
+          // إزالة العنصر نهائياً بعد انتهاء حركة الـ CSS
           setTimeout(() => {
-            splashScreen.style.display = 'none';
-          }, 500); // 500 ملي ثانية هي نفس مدة الـ transition في الـ CSS
-        }, 800); 
+            splash.style.display = 'none';
+          }, 1000); 
+        }, 2000); 
       });
     </script>
   </body>
