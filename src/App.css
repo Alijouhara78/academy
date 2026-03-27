@@ -1,249 +1,219 @@
-/* استيراد خطوط احترافية تدعم العربية والإنجليزية بأسلوب سينمائي */
+/* ========================================
+   1. التأسيس والمتغيرات (Unified Identity)
+   ======================================== */
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;800;900&family=Inter:wght@300;400;700;900&display=swap');
 
 :root {
-  /* لوحة الألوان السينمائية - تم تعميق الدرجات للفخامة */
-  --clr-bg-deep: #05070a;
-  --clr-bg-surface: #0a0d14;
-  --clr-gold: #c5a048;
-  --clr-gold-light: #e8c678;
-  --clr-gold-glow: rgba(197, 160, 72, 0.25);
-  
-  --clr-text-main: #ffffff;
-  --clr-text-muted: #94a3b8;
-  
-  /* تأثيرات الزجاج الفاخرة */
-  --glass-bg: rgba(10, 13, 20, 0.45);
-  --glass-border: rgba(255, 255, 255, 0.07);
-  --glass-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-  
-  /* الخطوط والتوقيتات */
-  --font-main: 'Tajawal', 'Inter', sans-serif;
-  --transition-cinematic: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
-  
-  color-scheme: dark;
+    /* الألوان الأساسية - درجات الذهب والليل */
+    --clr-bg-deep: #05070a;
+    --clr-bg-surface: #0a0d14;
+    --clr-gold: #c5a048;
+    --clr-gold-light: #e8c678;
+    --clr-gold-glow: rgba(197, 160, 72, 0.3);
+    
+    --clr-text-main: #ffffff;
+    --clr-text-muted: #94a3b8;
+    
+    /* هوية الزجاج الموحدة */
+    --glass-bg: rgba(10, 13, 20, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-border-gold: rgba(197, 160, 72, 0.3);
+    --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    
+    --font-main: 'Tajawal', 'Inter', sans-serif;
+    --transition-cinematic: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
 /* ========================================
-   2. تفاصيل صغيرة "حلوة" (The Secret Sauce)
+   2. الإعدادات العامة (Body & Background)
    ======================================== */
-
-/* تخصيص لون تحديد النص - لمسة احترافية */
-::selection {
-  background-color: var(--clr-gold);
-  color: var(--clr-bg-deep);
-}
-
-/* تحسين السكرول السلس لكل الموقع */
 html {
-  scroll-behavior: smooth;
-  direction: rtl; /* دعم العربية افتراضياً */
+    scroll-behavior: smooth;
+    direction: rtl;
 }
 
 body {
-  /* 1. دمج التدرج اللوني مع الصورة لضمان وضوح النصوص فوقها */
-  background-image: 
-    linear-gradient(to bottom, rgba(5, 7, 10, 0.7), rgba(10, 13, 20, 0.8)), 
-    url('./assets/school-bg.jpg');
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--clr-bg-deep);
+    /* الخلفية المطلوبة: صورة المدرسة فقط مع طبقة تظليل خفيفة جداً للفخامة */
+    background-image: 
+        linear-gradient(to bottom, rgba(5, 7, 10, 0.6), rgba(5, 7, 10, 0.8)), 
+        url('./assets/school-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    
+    color: var(--clr-text-main);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
 
-  /* 2. أهم خاصية: تجعل الصورة تغطي كل الشاشة مهما كان حجم الجهاز */
-  background-size: cover;
-
-  /* 3. لضمان عدم تكرار الصورة إذا كان المحتوى طويلاً */
-  background-repeat: no-repeat;
-
-  /* 4. توسيط الصورة في المنتصف دائماً */
-  background-position: center center;
-
-  /* 5. تثبيت الخلفية عند التمرير (يعطي فخامة للتصميم) */
-  background-attachment: fixed;
-
-  /* 6. إعدادات القياسات والخطوط */
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  width: 100%;
-  color: var(--clr-text-main);
-  font-family: var(--font-main);
-  overflow-x: hidden;
-  
-  /* تحسين عرض الخطوط */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+::selection {
+    background-color: var(--clr-gold);
+    color: var(--clr-bg-deep);
 }
 
 /* ========================================
-   3. تنسيق العناوين بتأثير "الوهج الخافت"
+   3. العناوين والجماليات البصرية
    ======================================== */
-
-h1, h2, h3 {
-  font-family: 'Tajawal', sans-serif;
-  text-wrap: balance;
-  margin-bottom: 1.5rem;
-}
-
 h1 {
-  font-size: clamp(2.5rem, 8vw, 5.5rem);
-  font-weight: 900;
-  letter-spacing: -1px;
-  background: linear-gradient(180deg, #fff 40%, rgba(255,255,255,0.5) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    background: linear-gradient(180deg, #fff 30%, var(--clr-gold-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 15px rgba(197, 160, 72, 0.2));
+    margin-bottom: 2rem;
 }
-
-/* ========================================
-   4. مكونات الزجاج (Utility Classes)
-   ======================================== */
 
 .glass-panel {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-  backdrop-filter: blur(15px) saturate(180%);
-  -webkit-backdrop-filter: blur(15px) saturate(180%);
-  border-radius: 24px;
-  padding: 2.5rem;
-  transition: var(--transition-cinematic);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px) saturate(160%);
+    border-radius: 24px;
+    box-shadow: var(--glass-shadow);
+    transition: var(--transition-cinematic);
 }
 
-/* تأثير "توهج الحدود" عند المرور بالماوس */
 .glass-panel:hover {
-  border-color: rgba(197, 160, 72, 0.3);
-  background: rgba(10, 13, 20, 0.55);
-  transform: translateY(-5px);
+    border-color: var(--glass-border-gold);
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(197, 160, 72, 0.1);
 }
 
 /* ========================================
-   5. شريط التمرير الذهبي (Scrollbar)
+   4. البوت الذكي (Chatbot Cinematic Version)
    ======================================== */
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--clr-bg-deep);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--clr-bg-deep), var(--clr-gold), var(--clr-bg-deep));
-  border-radius: 20px;
-}
-
-/* ========================================
-   6. حركات الظهور (Global Animations)
-   ======================================== */
-
-/* كلاس جاهز لأي عنصر تريد أن يظهر بحركة "تلاشي" */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: revealIn 1s forwards ease-out;
-}
 .chatbot-container {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 9999;
-  font-family: 'Tajawal', sans-serif;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 10000;
 }
 
+/* زر الفتح - تم تغيير اللون من الأزرق إلى الذهبي */
 .chat-toggle-btn {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
-  color: white;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--clr-gold), var(--clr-gold-light));
+    color: var(--clr-bg-deep); /* الأسود الداكن فوق الذهب */
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px var(--clr-gold-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-cinematic);
 }
 
+.chat-toggle-btn:hover {
+    transform: rotate(15deg) scale(1.1);
+    box-shadow: 0 15px 40px var(--clr-gold-glow);
+}
+
+/* نافذة الشات - أصبحت متوافقة مع الـ Glassmorphism الداكن */
 .chat-window {
-  width: 350px;
-  height: 500px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px); /* تأثير Glassmorphism */
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    width: 380px;
+    height: 550px;
+    background: rgba(10, 13, 20, 0.85); /* داكنة أكثر للفخامة */
+    backdrop-filter: blur(25px);
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: var(--glass-shadow);
+    transition: var(--transition-cinematic);
 }
 
 .chat-header {
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
+    padding: 20px;
+    background: rgba(197, 160, 72, 0.1); /* مسحة ذهبية خفيفة */
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--clr-gold-light);
+    font-weight: 800;
 }
 
 .chat-messages {
-  flex: 1;
-  padding: 15px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.message {
-  padding: 10px 15px;
-  border-radius: 15px;
-  max-width: 80%;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
+/* رسالة البوت - زجاج شفاف */
 .message.bot {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  align-self: flex-start;
-  border-bottom-left-radius: 2px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #e2e8f0;
+    align-self: flex-start;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 18px 18px 18px 4px;
 }
 
+/* رسالة المستخدم - ذهبية داكنة */
 .message.user {
-  background: #6e8efb;
-  color: white;
-  align-self: flex-end;
-  border-bottom-right-radius: 2px;
+    background: var(--clr-gold);
+    color: var(--clr-bg-deep);
+    align-self: flex-end;
+    font-weight: 600;
+    border-radius: 18px 18px 4px 18px;
+    box-shadow: 0 4px 15px rgba(197, 160, 72, 0.2);
 }
 
+/* منطقة الإدخال */
 .chat-input {
-  padding: 15px;
-  display: flex;
-  gap: 10px;
-  background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    gap: 12px;
 }
 
 .chat-input input {
-  flex: 1;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 8px 12px;
-  border-radius: 10px;
-  color: white;
-  outline: none;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    padding: 12px 18px;
+    border-radius: 14px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.chat-input input:focus {
+    border-color: var(--clr-gold);
 }
 
 .chat-input button {
-  background: transparent;
-  border: none;
-  color: #6e8efb;
-  font-size: 20px;
-  cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--clr-gold);
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
 }
-@keyframes revealIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+
+.chat-input button:hover {
+    transform: scale(1.2) rotate(-10deg);
+}
+
+/* ========================================
+   5. شريط التمرير (The Golden Scroll)
+   ======================================== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--clr-bg-deep); }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--clr-bg-deep), var(--clr-gold), var(--clr-bg-deep));
+    border-radius: 10px;
 }
