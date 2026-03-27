@@ -1,0 +1,159 @@
+.map-section {
+  padding: 100px 5%;
+  background: radial-gradient(circle at bottom left, rgba(197, 160, 72, 0.03) 0%, transparent 50%);
+}
+
+.section-header-map {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.gold-text {
+  color: var(--clr-gold);
+  text-shadow: 0 0 20px rgba(197, 160, 72, 0.3);
+}
+
+.map-container-wrap {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.map-grid-cinematic {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* كرت التواصل الزجاجي */
+.contact-card-glass {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 30px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-heading {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.card-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--clr-gold);
+}
+
+.contact-info-list {
+  display: grid;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.contact-item-glass {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  transition: 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.contact-item-glass:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(197, 160, 72, 0.2);
+  transform: translateX(-5px);
+}
+
+.icon-box {
+  width: 45px;
+  height: 45px;
+  background: rgba(197, 160, 72, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-gold);
+  flex-shrink: 0;
+}
+
+.text-box strong {
+  display: block;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.text-box span {
+  color: var(--clr-text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.directions-btn {
+  margin-top: 30px;
+  background: transparent;
+  border: 1px solid var(--clr-gold);
+  color: var(--clr-gold);
+  padding: 15px;
+  border-radius: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.directions-btn:hover {
+  background: var(--clr-gold);
+  color: #000;
+}
+
+/* إطار الخريطة */
+.map-frame-wrapper {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  min-height: 450px;
+}
+
+.map-overlay-glow {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.map-frame-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(1) invert(0.9) contrast(1.2); /* خريطة داكنة لتناسب التصميم */
+  opacity: 0.8;
+  transition: 0.5s ease;
+}
+
+.map-frame-wrapper:hover iframe {
+  filter: grayscale(0) invert(0) contrast(1);
+  opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  .map-grid-cinematic {
+    grid-template-columns: 1fr;
+  }
+  .map-frame-wrapper {
+    min-height: 350px;
+  }
+}

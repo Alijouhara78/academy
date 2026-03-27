@@ -1,0 +1,252 @@
+/* =========================================
+   1. المتغيرات الأساسية (Global Variables)
+========================================= */
+:root {
+  --clr-gold: #c5a048;
+  --clr-gold-light: #e8c678;
+  --clr-dark: #0a0d14;
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================
+   2. الهيدر الأساسي (Main Header)
+========================================= */
+.glass-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 0;
+  transition: var(--transition-smooth);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  direction: rtl; /* لضمان التنسيق العربي */
+}
+
+/* حالة الهيدر عند السكرول */
+.glass-header.scrolled {
+  padding: 0.8rem 0;
+  background: rgba(10, 13, 20, 0.8);
+  backdrop-filter: blur(15px) saturate(150%);
+  -webkit-backdrop-filter: blur(15px) saturate(150%);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.header-container {
+  width: 92%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* =========================================
+   3. الشعار والبراند (Branding)
+========================================= */
+.brand-cinematic {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.brand-cinematic:hover {
+  transform: scale(1.02);
+}
+
+.nav-logo {
+  height: 48px;
+  width: auto;
+  filter: drop-shadow(0 0 10px rgba(197, 160, 72, 0.2));
+}
+
+.brand-text-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+}
+
+.brand-subtitle {
+  font-size: 0.75rem;
+  color: var(--clr-gold);
+  font-weight: 400;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+/* =========================================
+   4. روابط الديسكتوب (Desktop Nav)
+========================================= */
+.desktop-nav-glass {
+  display: none;
+  gap: 2.5rem;
+}
+
+@media (min-width: 992px) {
+  .desktop-nav-glass { display: flex; }
+}
+
+.nav-item-glass {
+  position: relative;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.nav-item-glass:hover {
+  color: #fff;
+}
+
+.hover-line {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background: var(--clr-gold);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 8px var(--clr-gold);
+}
+
+.nav-item-glass:hover .hover-line {
+  width: 100%;
+}
+
+/* =========================================
+   5. الأزرار والأكشنز (Actions)
+========================================= */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* زر الجولة الافتراضية */
+.tour-trigger-btn {
+  display: none;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(197, 160, 72, 0.08);
+  border: 1px solid rgba(197, 160, 72, 0.4);
+  color: var(--clr-gold);
+  padding: 0.6rem 1.4rem;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .tour-trigger-btn { display: flex; }
+}
+
+.tour-trigger-btn:hover {
+  background: var(--clr-gold);
+  color: var(--clr-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(197, 160, 72, 0.3);
+}
+
+/* حركة النبض للأيقونة */
+.pulse-icon {
+  animation: iconPulse 2s infinite;
+}
+
+@keyframes iconPulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* زر همبرغر الموبايل */
+.mobile-menu-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 992px) {
+  .mobile-menu-btn { display: none; }
+}
+
+.mobile-menu-btn:active {
+  transform: scale(0.9);
+}
+
+/* =========================================
+   6. قائمة الموبايل (Mobile Menu)
+========================================= */
+.mobile-glass-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 13, 20, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 999;
+}
+
+.mobile-menu-inner {
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  text-align: right;
+}
+
+.mobile-menu-inner a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-inner a:hover {
+  color: var(--clr-gold);
+  padding-right: 10px; /* حركة خفيفة لليمين عند اللمس */
+}
+
+.mobile-tour-btn {
+  background: linear-gradient(135deg, var(--clr-gold), var(--clr-gold-light));
+  color: var(--clr-dark);
+  border: none;
+  padding: 1.2rem;
+  border-radius: 15px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  box-shadow: 0 10px 20px rgba(197, 160, 72, 0.2);
+}
