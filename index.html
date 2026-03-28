@@ -4,7 +4,17 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./src/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>مدرسة الأكاديمية الخاصة  | Academy School</title>
+    
+    <title>مدرسة الأكاديمية الخاصة | Academy School</title>
+    <meta name="description" content="مدرسة الأكاديمية الخاصة في قرى الشام توفر بيئة تعليمية متطورة، دورات تقوية، وأنشطة تعليمية شاملة لبناء مستقبل الطلاب بأحدث الوسائل التقنية." />
+    <meta name="keywords" content="مدرسة الأكاديمية الخاصة, مدرسة خاصة سوريا, قرى الشام, تعليم متطور, دورات تقوية, أفضل مدرسة في قرى الشام" />
+    
+    <meta property="og:title" content="مدرسة الأكاديمية الخاصة - المكان الأفضل لبناء المستقبل" />
+    <meta property="og:description" content="اكتشف تجربتنا التعليمية الفريدة والسينمائية في مدرسة الأكاديمية الخاصة." />
+    <meta property="og:image" content="https://academyschool.vercel.app/src/logo.png" />
+    <meta property="og:url" content="https://academyschool.vercel.app/" />
+    <meta property="og:type" content="website" />
+
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
   </head>
   <body>
@@ -12,7 +22,7 @@
     <div id="splash-screen" class="cinematic-splash">
       <div class="splash-core">
         <div class="knowledge-ring"></div>
-        <img src="./src/logo.png" alt="School Logo" class="splash-logo-glass"> 
+        <img src="./src/logo.png" alt="شعار مدرسة الأكاديمية الخاصة" class="splash-logo-glass"> 
         
         <span class="particle p1">E=mc²</span>
         <span class="particle p2">∫</span>
@@ -37,12 +47,8 @@
     <script>
       window.addEventListener('load', () => {
         const splash = document.getElementById('splash-screen');
-        
-        // تأخير بسيط 2 ثانية ليعيش المستخدم التجربة البصرية
         setTimeout(() => {
           splash.classList.add('reveal-site');
-          
-          // إزالة العنصر نهائياً بعد انتهاء حركة الـ CSS
           setTimeout(() => {
             splash.style.display = 'none';
           }, 1000); 
