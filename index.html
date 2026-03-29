@@ -17,6 +17,8 @@
     <meta property="og:url" content="https://academyschool.vercel.app/" />
     <meta property="og:type" content="website" />
 
+    <link rel="canonical" href="https://academyschool.vercel.app/" />
+
     <meta name="google-site-verification" content="ViD0dapRjux3mbu8sRsJzpnD29Q3HRVnaYvHn-YqrCw" />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
   </head>
@@ -50,11 +52,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
     apiKey: "AIzaSyDYnZkMk0rZyCsk5tJbDcYtlFPyr4mm1MQ",
     authDomain: "academyschool-3c2b1.firebaseapp.com",
@@ -70,7 +68,6 @@
   const analytics = getAnalytics(app);
 </script>
     <script>
-      
       window.addEventListener('load', () => {
         const splash = document.getElementById('splash-screen');
         setTimeout(() => {
